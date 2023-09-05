@@ -1,8 +1,9 @@
-FROM eclipse-temurin:17-jdk-alpine AS builder
+FROM eclipse-temurin:17-jdk-alpine 
 WORKDIR /app
 
-FROM builder AS dev-envs
-RUN <<EOF
-apt-get update
-apt-get install -y --no-install-recommends git
-EOF
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN apt-get update -qq \
+ && apt-get install -qq --no-install-recommends git \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
