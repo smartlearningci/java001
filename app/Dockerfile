@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-alpine 
+FROM eclipse-temurin:17-jdk-alpine as builder
 WORKDIR /app
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
