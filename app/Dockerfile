@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17 as builder
+FROM eclipse-temurin:17-jdk-alpine AS builder
 WORKDIR /app
 
 FROM builder AS dev-envs
